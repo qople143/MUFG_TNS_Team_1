@@ -1,69 +1,14 @@
-"""
-Excel transformation operations module.
-
-This module contains all data transformation operations that can be
-applied to Excel DataFrames.
-
-Operations:
-    - RemoveDuplicates: Remove duplicate rows
-    - FilterRows: Filter rows by condition
-    - ReplaceValues: Replace values in columns
-    - MergeColumns: Combine multiple columns
-    - NormalizeText: Normalize text values
-    - ConvertDateFormat: Convert date formats
-"""
-
 import pandas as pd
 import numpy as np
 from datetime import datetime
 
 
 class RemoveDuplicates:
-    """
-    Remove duplicate rows from DataFrame.
-    
-    This operation identifies and removes rows that are duplicates
-    based on specified columns.
-    
-    Attributes:
-        columns (list): List of column names to check for duplicates.
-                       If None, checks all columns.
-        keep (str): Which duplicates to keep:
-                   - 'first': Keep first occurrence (default)
-                   - 'last': Keep last occurrence
-                   - False: Remove all duplicates
-    """
-    
     def __init__(self, columns=None, keep='first'):
-        """
-        Initialize RemoveDuplicates operation.
-        
-        Args:
-            columns (list, optional): Column names to check for duplicates.
-                                     Defaults to None (all columns).
-            keep (str): Which duplicates to keep ('first', 'last', or False).
-                       Defaults to 'first'.
-        """
         self.columns = columns
         self.keep = keep
     
     def apply(self, df):
-        """
-        Apply the remove duplicates operation to a DataFrame.
-        
-        Args:
-            df (pd.DataFrame): Input DataFrame.
-        
-        Returns:
-            pd.DataFrame: DataFrame with duplicates removed.
-        
-        Raises:
-            ValueError: If operation fails due to invalid input.
-        
-        Example:
-            >>> op = RemoveDuplicates(columns=['id', 'name'])
-            >>> result = op.apply(df)
-        """
         try:
             # Make a copy to avoid modifying original
             result = df.copy()
@@ -80,31 +25,7 @@ class RemoveDuplicates:
 
 
 class FilterRows:
-    """
-    Filter rows from DataFrame based on a condition.
-    
-    This operation allows filtering rows by comparing a column
-    value against a specified condition and value.
-    
-    Attributes:
-        column (str): Column name to filter by.
-        operator (str): Comparison operator:
-                       '==', '!=', '>', '<', '>=', '<=', 'contains', 'in'
-        value: The value to compare against.
-    """
-    
     def __init__(self, column, operator, value):
-        """
-        Initialize FilterRows operation.
-        
-        Args:
-            column (str): Column name to filter by.
-            operator (str): Comparison operator.
-            value: Value to compare against.
-        
-        Raises:
-            ValueError: If operator is not valid.
-        """
         valid_operators = ['==', '!=', '>', '<', '>=', '<=', 'contains', 'in']
         if operator not in valid_operators:
             raise ValueError(f"Operator must be one of: {valid_operators}")
@@ -114,22 +35,6 @@ class FilterRows:
         self.value = value
     
     def apply(self, df):
-        """
-        Apply the filter operation to a DataFrame.
-        
-        Args:
-            df (pd.DataFrame): Input DataFrame.
-        
-        Returns:
-            pd.DataFrame: Filtered DataFrame.
-        
-        Raises:
-            ValueError: If operation fails.
-        
-        Example:
-            >>> op = FilterRows('age', '>', 30)
-            >>> result = op.apply(df)  # Get all rows where age > 30
-        """
         try:
             df = df.copy()
             
@@ -157,49 +62,13 @@ class FilterRows:
             raise ValueError(f"Filter failed: {str(e)}")
 
 
-class ReplaceValues:
-    """
-    Replace values in a DataFrame column.
-    
-    This operation finds all occurrences of a specific value
-    in a column and replaces them with a new value.
-    
-    Attributes:
-        column (str): Column name where replacements occur.
-        old_value: Value to find and replace.
-        new_value: Value to replace with.
-    """
-    
+class ReplaceValues:    
     def __init__(self, column, old_value, new_value):
-        """
-        Initialize ReplaceValues operation.
-        
-        Args:
-            column (str): Column name.
-            old_value: Value to replace.
-            new_value: Replacement value.
-        """
         self.column = column
         self.old_value = old_value
         self.new_value = new_value
     
     def apply(self, df):
-        """
-        Apply the replace operation to a DataFrame.
-        
-        Args:
-            df (pd.DataFrame): Input DataFrame.
-        
-        Returns:
-            pd.DataFrame: DataFrame with replacements made.
-        
-        Raises:
-            ValueError: If operation fails.
-        
-        Example:
-            >>> op = ReplaceValues('city', 'NYC', 'New York')
-            >>> result = op.apply(df)
-        """
         try:
             df = df.copy()
             
@@ -212,3 +81,79 @@ class ReplaceValues:
             return df
         except Exception as e:
             raise ValueError(f"Replace failed: {str(e)}")
+
+class MergeColumns:    
+    def __init__(self, columns, new_column_name='Merged', separator=' '):
+        self.columns = columns
+        self.new_column_name = new_column_name
+        self.separator = separator
+    
+    def apply(self, df):
+        try:
+            df = df.copy()
+            
+            # Convert all columns to string and merge
+            df[self.new_column_name] = df[self.columns].astype(str).agg(
+                self.separator.join, axis=1
+            )
+            
+            return df
+        except Exception as e:
+            raise ValueError(f"Merge columns failed: {str(e)}")
+
+class NormalizeText:
+    def __init__(self, column, method='lower'):
+        valid_methods = ['lower', 'upper', 'title', 'trim', 'capitalize']
+        if method not in valid_methods:
+            raise ValueError(f"Method must be one of: {valid_methods}")
+        
+        self.column = column
+        self.method = method
+    
+    def apply(self, df):
+        try:
+            df = df.copy()
+            
+            # Convert to string first
+            df[self.column] = df[self.column].astype(str)
+            
+            if self.method == 'lower':
+                df[self.column] = df[self.column].str.lower()
+            elif self.method == 'upper':
+                df[self.column] = df[self.column].str.upper()
+            elif self.method == 'title':
+                df[self.column] = df[self.column].str.title()
+            elif self.method == 'trim':
+                df[self.column] = df[self.column].str.strip()
+            elif self.method == 'capitalize':
+                df[self.column] = df[self.column].str.capitalize()
+            
+            return df
+        except Exception as e:
+            raise ValueError(f"Text normalization failed: {str(e)}")
+
+class ConvertDateFormat:
+    def __init__(self, column, from_format='auto', to_format='%Y-%m-%d'):
+        self.column = column
+        self.from_format = from_format
+        self.to_format = to_format
+    
+    def apply(self, df):
+        try:
+            df = df.copy()
+            
+            # Parse dates
+            if self.from_format == 'auto':
+                df[self.column] = pd.to_datetime(df[self.column])
+            else:
+                df[self.column] = pd.to_datetime(
+                    df[self.column], 
+                    format=self.from_format
+                )
+            
+            # Format dates
+            df[self.column] = df[self.column].dt.strftime(self.to_format)
+            
+            return df
+        except Exception as e:
+            raise ValueError(f"Date conversion failed: {str(e)}")
