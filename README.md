@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# 📊 Excel Data Messaging Tool
-=======
 # 📊 Excel Data Massaging Tool
->>>>>>> 19f18de (Initial commit: Excel Data Massaging Tool - Complete project with 31 operations, comprehensive documentation, and sample data)
 
 A powerful, user-friendly Streamlit application for Excel data transformation and processing.
 
@@ -12,92 +8,115 @@ A powerful, user-friendly Streamlit application for Excel data transformation an
 
 ## 🎬 Quick Demo
 
-```bash
+````bash
 # One-command setup and run
 ./run.sh
-```
-
 Or manually:
-```bash
+
+bash
+Copy code
 pip install -r requirements.txt
 streamlit run app.py
-```
+🎯 Features
+Data Cleaning
+Remove duplicates
 
-## 🎯 Features
+Remove empty rows/columns
 
-### Data Cleaning
-- Remove duplicates
-- Remove empty rows/columns
-- Fill missing values (forward fill, backward fill, mean, median, mode, custom value)
+Fill missing values (forward fill, backward fill, mean, median, mode, custom value)
 
-### Filtering
-- Filter rows based on conditions
-- Support for multiple operators (==, !=, >, <, >=, <=, contains, not contains)
+Filtering
+Filter rows based on conditions
 
-### Column Operations
-- Merge columns
-- Split columns
-- Rename columns
-- Delete columns
-- Reorder columns
+Support for multiple operators (==, !=, >, <, >=, <=, contains, not contains)
 
-### Mathematical Operations
-- Basic arithmetic (add, subtract, multiply, divide)
-- Aggregate functions (sum, mean, median, min, max)
-- Percentage change calculations
-- Weighted averages
-- Conditional calculations
+Column Operations
+Merge columns
 
-### Text Operations
-- Convert to lowercase/uppercase/title case
-- Trim spaces
-- Replace text
-- Extract patterns
+Split columns
 
-### Date Operations
-- Convert to date format
-- Extract year/month/day
-- Format dates
+Rename columns
 
-### Additional Features
-- **Multi-file support**: Upload and process multiple Excel files
-- **Multi-sheet support**: Handle Excel files with multiple sheets
-- **Template system**: Save and reuse transformation workflows
-- **Preview feature**: Preview results before downloading
-- **Error handling**: Graceful error handling with detailed messages
-- **Logging**: Built-in logging for debugging and audit
+Delete columns
 
-## 🚀 Installation
+Reorder columns
 
-1. Clone the repository:
-```bash
+Mathematical Operations
+Basic arithmetic (add, subtract, multiply, divide)
+
+Aggregate functions (sum, mean, median, min, max)
+
+Percentage change calculations
+
+Weighted averages
+
+Conditional calculations
+
+Text Operations
+Convert to lowercase/uppercase/title case
+
+Trim spaces
+
+Replace text
+
+Extract patterns
+
+Date Operations
+Convert to date format
+
+Extract year/month/day
+
+Format dates
+
+Additional Features
+Multi-file support: Upload and process multiple Excel files
+
+Multi-sheet support: Handle Excel files with multiple sheets
+
+Template system: Save and reuse transformation workflows
+
+Preview feature: Preview results before downloading
+
+Error handling: Graceful error handling with detailed messages
+
+Logging: Built-in logging for debugging and audit
+
+🚀 Installation
+Clone the repository:
+
+bash
+Copy code
 git clone <repository-url>
 cd excel-data-massaging-tool
-```
+Install dependencies:
 
-2. Install dependencies:
-```bash
+bash
+Copy code
 pip install -r requirements.txt
-```
+💻 Usage
+Start the application:
 
-## 💻 Usage
-
-1. Start the application:
-```bash
+bash
+Copy code
 streamlit run app.py
-```
+Open your browser and navigate to:
 
-2. Open your browser and navigate to `http://localhost:8501`
+arduino
+Copy code
+http://localhost:8501
+Follow the 4-step workflow:
 
-3. Follow the 4-step workflow:
-   - **Step 1**: Upload Excel files
-   - **Step 2**: Configure operations
-   - **Step 3**: Preview and execute
-   - **Step 4**: Download results
+Step 1: Upload Excel files
 
-## 📁 Project Structure
+Step 2: Configure operations
 
-```
+Step 3: Preview and execute
+
+Step 4: Download results
+
+📁 Project Structure
+bash
+Copy code
 excel-data-massaging-tool/
 ├── app.py                      # Main Streamlit application
 ├── utils/
@@ -106,85 +125,104 @@ excel-data-massaging-tool/
 │   ├── data_transformer.py     # Data transformation operations
 │   └── template_manager.py     # Template save/load functionality
 ├── docs/                       # Complete documentation
-│   ├── START_HERE.md          # Quick start guide
-│   ├── QUICKSTART.md          # 5-minute tutorial
-│   ├── DOCUMENTATION.md       # Complete manual
-│   ├── DEMO_SCRIPT.md         # Demo walkthrough
-│   ├── PROJECT_SUMMARY.md     # Executive summary
-│   ├── PROJECT_OVERVIEW.md    # Full overview
-│   ├── PRESENTATION.md        # Presentation slides
-│   └── CHECKLIST.md           # Requirements checklist
+│   ├── START_HERE.md           # Quick start guide
+│   ├── QUICKSTART.md           # 5-minute tutorial
+│   ├── DOCUMENTATION.md        # Complete manual
+│   ├── DEMO_SCRIPT.md          # Demo walkthrough
+│   ├── PROJECT_SUMMARY.md      # Executive summary
+│   ├── PROJECT_OVERVIEW.md     # Full overview
+│   ├── PRESENTATION.md          # Presentation slides
+│   └── CHECKLIST.md             # Requirements checklist
 ├── templates/                  # Saved operation templates
 ├── sample_data/               # Sample input/output files
 ├── requirements.txt           # Python dependencies
 └── README.md                  # This file
-```
+📚 Documentation
+Comprehensive documentation is available in the docs/ folder:
 
-## 📚 Documentation
+START_HERE.md – Quick start guide
 
-Comprehensive documentation is available in the `docs/` folder:
+QUICKSTART.md – 5-minute tutorial
 
-- **[START_HERE.md](docs/START_HERE.md)** - Quick start guide
-- **[QUICKSTART.md](docs/QUICKSTART.md)** - 5-minute tutorial
-- **[DOCUMENTATION.md](docs/DOCUMENTATION.md)** - Complete user manual
-- **[DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md)** - Video demonstration script
-- **[PROJECT_SUMMARY.md](docs/PROJECT_SUMMARY.md)** - Executive summary
-- **[PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md)** - Full project overview
-- **[PRESENTATION.md](docs/PRESENTATION.md)** - Presentation slides
-- **[CHECKLIST.md](docs/CHECKLIST.md)** - Requirements verification
+DOCUMENTATION.md – Complete user manual
 
-## 📝 Code Documentation
+DEMO_SCRIPT.md – Video demonstration script
 
-All functions and classes include comprehensive docstrings following Google style.
+PROJECT_SUMMARY.md – Executive summary
 
-## 📊 Sample Files
+PROJECT_OVERVIEW.md – Full project overview
 
-Sample input and output files are provided in the `sample_data/` directory:
-- `sample_input.xlsx`: Example input file with raw data
-- `sample_output.xlsx`: Example output file after transformations
+PRESENTATION.md – Presentation slides
 
-## 🧪 Testing
+CHECKLIST.md – Requirements verification
 
+📝 Code Documentation
+All functions and classes include comprehensive docstrings following the Google style.
+
+📊 Sample Files
+Sample input and output files are provided in the sample_data/ directory:
+
+sample_input.xlsx: Example input file with raw data
+
+sample_output.xlsx: Example output file after transformations
+
+🧪 Testing
 The application includes error handling for:
-- Invalid file formats
-- Missing columns
-- Invalid operations
-- Data type mismatches
-- Empty datasets
 
-## 🔧 Technical Details
+Invalid file formats
 
-- **Framework**: Streamlit
-- **Data Processing**: Pandas
-- **Excel I/O**: OpenPyXL
-- **Numerical Operations**: NumPy
+Missing columns
 
-## 📋 Requirements Met
+Invalid operations
 
-✅ File upload with validation  
-✅ Flexible operation configuration  
-✅ Data cleaning operations  
-✅ Mathematical operations (3+ types)  
-✅ Text operations  
-✅ Date operations  
-✅ Preview feature  
-✅ Error handling  
-✅ Template system  
-✅ Multi-file and multi-sheet support  
-✅ Comprehensive documentation  
-✅ Modular code structure  
+Data type mismatches
 
-<<<<<<< HEAD
-=======
-## 👨‍💻 Author
+Empty datasets
 
-[Your Name]
->>>>>>> 19f18de (Initial commit: Excel Data Massaging Tool - Complete project with 31 operations, comprehensive documentation, and sample data)
+🔧 Technical Details
+Framework: Streamlit
 
-## 📄 License
+Data Processing: Pandas
 
+Excel I/O: OpenPyXL
+
+Numerical Operations: NumPy
+
+📋 Requirements Met
+✅ File upload with validation
+✅ Flexible operation configuration
+✅ Data cleaning operations
+✅ Mathematical operations (3+ types)
+✅ Text operations
+✅ Date operations
+✅ Preview feature
+✅ Error handling
+✅ Template system
+✅ Multi-file and multi-sheet support
+✅ Comprehensive documentation
+✅ Modular code structure
+
+📄 License
 MIT License
-<<<<<<< HEAD
 
-=======
->>>>>>> 19f18de (Initial commit: Excel Data Massaging Tool - Complete project with 31 operations, comprehensive documentation, and sample data)
+yaml
+Copy code
+
+---
+
+### ✅ Now run these commands
+
+```bash
+git add README.md
+git rebase --continue
+If the commit message opens again, just type:
+
+ruby
+Copy code
+:wq
+Then check:
+
+bash
+Copy code
+git status
+````
