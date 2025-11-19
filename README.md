@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # 📊 Excel Data Messaging Tool
+=======
+# 📊 Excel Data Massaging Tool
+>>>>>>> 19f18de (Initial commit: Excel Data Massaging Tool - Complete project with 31 operations, comprehensive documentation, and sample data)
 
 A powerful, user-friendly Streamlit application for Excel data transformation and processing.
 
@@ -170,8 +174,17 @@ The application includes error handling for:
 ✅ Comprehensive documentation  
 ✅ Modular code structure  
 
+<<<<<<< HEAD
+=======
+## 👨‍💻 Author
+
+[Your Name]
+>>>>>>> 19f18de (Initial commit: Excel Data Massaging Tool - Complete project with 31 operations, comprehensive documentation, and sample data)
 
 ## 📄 License
 
 MIT License
+<<<<<<< HEAD
 
+=======
+>>>>>>> 19f18de (Initial commit: Excel Data Massaging Tool - Complete project with 31 operations, comprehensive documentation, and sample data)
