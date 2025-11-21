@@ -1,4 +1,4 @@
-# 📊 Excel Data Massaging Tool
+# 📊 Excel Data Messaging Tool
 
 A powerful, user-friendly Streamlit application for Excel data transformation and processing.
 
