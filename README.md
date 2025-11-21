@@ -1,4 +1,4 @@
-# Excel Data Massaging Tool
+# Excel Data Messaging Tool
 
 A user-friendly Python application that transforms and cleans Excel data through an interactive Jupyter notebook interface. Upload your Excel files, apply powerful data transformation operations, and download processed results.
 
